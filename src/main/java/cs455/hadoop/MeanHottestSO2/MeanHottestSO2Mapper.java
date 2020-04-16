@@ -22,11 +22,10 @@ public class MeanHottestSO2Mapper extends Mapper<LongWritable, Text, Text, Doubl
 				double measurement = Double.parseDouble(items[FieldIndexes.SampleMeasurement.index].replaceAll("\"", ""));
 				for (String s : hottestStates) {
 					if (state.equals(s)){
-						context.write(new Text("Eastcoast"), new DoubleWritable(measurement));
+						context.write(new Text(s), new DoubleWritable(measurement));
 						break;
 					}
 				}
-				
 			}catch(Exception ignored){
 			
 			}

@@ -17,7 +17,7 @@ public class MeanSummerTempJob {
 		try {
 			Configuration conf = new Configuration();
 			// Give the MapRed job a name. You'll see this name in the Yarn webapp.
-			Job job = Job.getInstance(conf, "Air Quality");
+			Job job = Job.getInstance(conf, "Hottest Mean Summer Temp");
 			// Current class.
 			job.setJarByClass(MeanSummerTempJob.class);
 			// Mapper

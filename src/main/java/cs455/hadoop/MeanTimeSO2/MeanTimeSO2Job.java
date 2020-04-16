@@ -17,7 +17,7 @@ public class MeanTimeSO2Job {
 		try {
 			Configuration conf = new Configuration();
 			// Give the MapRed job a name. You'll see this name in the Yarn webapp.
-			Job job = Job.getInstance(conf, "Air Quality");
+			Job job = Job.getInstance(conf, "Mean SO2 per hour GMT");
 			// Current class.
 			job.setJarByClass(MeanTimeSO2Job.class);
 			// Mapper

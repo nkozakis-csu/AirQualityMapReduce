@@ -6,7 +6,7 @@ public class StateRegions {
 	
 	public String[] eastcoast = {"Maine", "New Hampshire", "Massachusetts", "Rhode Island",
 	"Connecticut", "New York", "New Jersey", "Delaware", "Maryland", "Virginia", "North Carolina", "South Carolina",
-	"Georgia", "Florida", "Pennsylvania", "Washington, DC"};
+	"Georgia", "Florida", "Pennsylvania", "District Of Columbia"};
 	
 	public boolean inWestCoast(String state){
 		for (String s : westcoast) {
