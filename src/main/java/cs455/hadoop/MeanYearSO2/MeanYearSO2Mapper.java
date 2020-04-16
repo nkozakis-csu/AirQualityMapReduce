@@ -19,8 +19,8 @@ public class MeanYearSO2Mapper extends Mapper<LongWritable, Text, Text, DoubleWr
 		if (items.length >= FieldIndexes.SampleMeasurement.index+1) {
 			try {
 				double measurement = Double.parseDouble(items[FieldIndexes.SampleMeasurement.index]);
-				String[] date = items[FieldIndexes.DateGMT.index].replaceAll("\"", "").split("-");
-				String year = date[0];
+				String[] date = items[FieldIndexes.DateGMT.index].replaceAll("\"", "").split("-"); //remove quotes and split by -
+				String year = date[0]; // first position is year
 				context.write(new Text(year), new DoubleWritable(measurement));
 			}catch(Exception ignored){
 			

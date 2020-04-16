@@ -19,7 +19,7 @@ public class MeanCoastSO2Mapper extends Mapper<LongWritable, Text, Text, DoubleW
 		if (items.length >= 21) {
 			try {
 				String state = items[FieldIndexes.StateName.index].replaceAll("\"", "");
-				double measurement = Double.parseDouble(items[FieldIndexes.SampleMeasurement.index].replaceAll("\"", ""));
+				double measurement = Double.parseDouble(items[FieldIndexes.SampleMeasurement.index].replaceAll("\"", "")); //remove quotes and parse double from measurement field
 				if (regions.inWestCoast(state))
 					context.write(new Text("Westcoast"), new DoubleWritable(measurement));
 				else if (regions.inEastCoast(state))

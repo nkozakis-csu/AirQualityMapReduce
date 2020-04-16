@@ -19,7 +19,7 @@ public class CountSitesMapper extends Mapper<LongWritable, Text, Text, IntWritab
 				String state = items[FieldIndexes.StateName.index];
 				String county = items[FieldIndexes.CountyCode.index];
 				String num = items[FieldIndexes.SiteNum.index];
-				int siteCode = Integer.parseInt(county.replaceAll("\"", "") + num.replaceAll("\"", ""));
+				int siteCode = Integer.parseInt(county.replaceAll("\"", "") + num.replaceAll("\"", "")); // remove quotes and combine county code with sitenum for unique ID
 				context.write(new Text(state), new IntWritable(siteCode));
 			}catch(Exception ignored){
 			

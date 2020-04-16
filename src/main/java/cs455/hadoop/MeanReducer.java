@@ -14,9 +14,9 @@ public class MeanReducer extends Reducer<Text, DoubleWritable, Text, DoubleWrita
 		// calculate the total count
 		for (DoubleWritable val : values) {
 			count += 1;
-			mean += val.get();
+			mean += val.get(); // sum up total
 		}
-		mean = mean/count;
+		mean = mean/count; // calculate mean
 		context.write(key, new DoubleWritable(mean));
 	}
 }
