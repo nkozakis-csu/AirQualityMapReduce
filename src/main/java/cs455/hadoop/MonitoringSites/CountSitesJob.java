@@ -17,7 +17,7 @@ public class CountSitesJob {
 		try {
 			Configuration conf = new Configuration();
 			// Give the MapRed job a name. You'll see this name in the Yarn webapp.
-			Job job = Job.getInstance(conf, "Air Quality");
+			Job job = Job.getInstance(conf, "Count Sites");
 			// Current class.
 			job.setJarByClass(CountSitesJob.class);
 			// Mapper
