@@ -1,4 +1,4 @@
-package cs455.hadoop.MeanCoastSO2;
+package cs455.hadoop;
 
 import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.Text;
@@ -6,7 +6,7 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 import java.io.IOException;
 
-public class MeanCoastSO2Reducer extends Reducer<Text, DoubleWritable, Text, DoubleWritable> {
+public class MeanReducer extends Reducer<Text, DoubleWritable, Text, DoubleWritable> {
 	@Override
 	protected void reduce(Text key, Iterable<DoubleWritable> values, Context context) throws IOException, InterruptedException {
 		int count = 0;

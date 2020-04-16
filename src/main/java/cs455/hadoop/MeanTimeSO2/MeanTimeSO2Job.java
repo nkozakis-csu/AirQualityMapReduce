@@ -1,6 +1,8 @@
-package cs455.hadoop;
+package cs455.hadoop.MeanTimeSO2;
+import cs455.hadoop.MeanReducer;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
@@ -9,7 +11,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import java.io.IOException;
 
-public class AirQualityJob {
+public class MeanTimeSO2Job {
 	
 	public static void main(String[] args) {
 		try {
@@ -17,16 +19,16 @@ public class AirQualityJob {
 			// Give the MapRed job a name. You'll see this name in the Yarn webapp.
 			Job job = Job.getInstance(conf, "Air Quality");
 			// Current class.
-			job.setJarByClass(AirQualityJob.class);
+			job.setJarByClass(MeanTimeSO2Job.class);
 			// Mapper
-			job.setMapperClass(AirQualityMapper.class);
+			job.setMapperClass(MeanTimeSO2Mapper.class);
 			// Combiner. We use the reducer as the combiner in this case.
-			job.setCombinerClass(AirQualityReducer.class);
+			job.setCombinerClass(MeanReducer.class);
 			// Reducer
-			job.setReducerClass(AirQualityReducer.class);
+			job.setReducerClass(MeanReducer.class);
 			// Outputs from the Mapper.
 			job.setMapOutputKeyClass(Text.class);
-			job.setMapOutputValueClass(IntWritable.class);
+			job.setMapOutputValueClass(DoubleWritable.class);
 			// Outputs from Reducer. It is sufficient to set only the following two properties
 			// if the Mapper and Reducer has same key and value types. It is set separately for
 			// elaboration.

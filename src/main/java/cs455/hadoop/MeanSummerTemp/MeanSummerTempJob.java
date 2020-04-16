@@ -1,4 +1,4 @@
-package cs455.hadoop.MeanCoastSO2;
+package cs455.hadoop.MeanSummerTemp;
 import cs455.hadoop.MeanReducer;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -11,7 +11,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import java.io.IOException;
 
-public class MeanCoastSO2Job {
+public class MeanSummerTempJob {
 	
 	public static void main(String[] args) {
 		try {
@@ -19,9 +19,9 @@ public class MeanCoastSO2Job {
 			// Give the MapRed job a name. You'll see this name in the Yarn webapp.
 			Job job = Job.getInstance(conf, "Air Quality");
 			// Current class.
-			job.setJarByClass(MeanCoastSO2Job.class);
+			job.setJarByClass(MeanSummerTempJob.class);
 			// Mapper
-			job.setMapperClass(MeanCoastSO2Mapper.class);
+			job.setMapperClass(MeanSummerTempMapper.class);
 			// Combiner. We use the reducer as the combiner in this case.
 			job.setCombinerClass(MeanReducer.class);
 			// Reducer
