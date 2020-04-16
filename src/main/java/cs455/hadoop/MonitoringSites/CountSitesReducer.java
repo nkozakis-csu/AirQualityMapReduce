@@ -10,7 +10,7 @@ import java.util.*;
 
 public class CountSitesReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
 	@Override
-	protected void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
+	protected void reduce(Text state, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
 		TreeSet<Integer> sites = new TreeSet<>();
 		int count = 0;
 		for (IntWritable val : values) {
@@ -18,6 +18,6 @@ public class CountSitesReducer extends Reducer<Text, IntWritable, Text, IntWrita
 			 	count+=1;
 			 }
 		}
-		context.write(key, new IntWritable(count));
+		context.write(state, new IntWritable(count));
 	}
 }

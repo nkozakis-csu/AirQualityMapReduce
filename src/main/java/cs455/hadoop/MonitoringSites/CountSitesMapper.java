@@ -9,15 +9,21 @@ import java.io.File;
 import java.io.IOException;
 import cs455.hadoop.FieldIndexes;
 
-public class CountSitesMapper extends Mapper<LongWritable, Text, IntWritable, IntWritable> {
+public class CountSitesMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 	
 	@Override
 	protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 		String[] items = value.toString().split(",");
-		if (items.length > 3) {
-			int state = Integer.parseInt(items[FieldIndexes.StateCode.index]);
-			int siteNum = Integer.parseInt(items[FieldIndexes.SiteNum.index]);
-			context.write(new IntWritable(state), new IntWritable(siteNum));
+		if (items.length >= 21) {
+			try {
+				String state = items[FieldIndexes.StateName.index];
+				String county = items[FieldIndexes.CountyCode.index];
+				String num = items[FieldIndexes.SiteNum.index];
+				int siteCode = Integer.parseInt(county.substring(1,county.length()-1) + num.substring(1, num.length()-1));
+				context.write(new Text(state), new IntWritable(siteCode));
+			}catch(Exception ignored){
+			
+			}
 		}
 		// over 20 and has state code
 	}

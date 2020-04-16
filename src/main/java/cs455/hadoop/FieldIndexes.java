@@ -2,17 +2,19 @@ package cs455.hadoop;
 
 public enum FieldIndexes {
 	
-	StateCode(1),
-	CountyCode(2),
-	SiteNum(3),
-	ParameterCode(4),
-	POC(5),
-	Latitude(6),
-	Longitude(7),
-	Datum(8),
-	ParameterName(9),
-	DateLocal(10),
-	TimeLocal(11)
+	StateCode(0),
+	CountyCode(1),
+	SiteNum(2),
+	ParameterCode(3),
+	POC(4),
+	Latitude(5),
+	Longitude(6),
+	Datum(7),
+	ParameterName(8),
+	DateLocal(9),
+	TimeLocal(10),
+	StateName(21),
+	CountyName(22)
 	;
 	
 	
