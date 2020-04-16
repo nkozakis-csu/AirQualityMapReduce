@@ -4,17 +4,37 @@ Author: Nathan Kozakis
 ## Jobs
 ### MonitoringSites.CountSitesJob
 Calculate total number of unique measuring sites.
+
+$HADOOP_HOME/bin/hadoop jar AirQualityMapReduce-1.0-SNAPSHOT.jar cs455.hadoop.MonitoringSites.CountSitesJob /data/meteorological /data/gases /home/cs455/q1
+
 ### MeanCoastSO2.MeanCoastSO2Job
+
 Calculates the mean SO2 for the East and West Coast
+
+$HADOOP_HOME/bin/hadoop jar AirQualityMapReduce-1.0-SNAPSHOT.jar cs455.hadoop.MeanCoastSO2.MeanCoastSO2Job /data/gases /home/cs455/q2
+
 ### MeanTimeSO2.MeanTimeSO2Job
 Calculate mean SO2 per hour of the day GMT
+
+$HADOOP_HOME/bin/hadoop jar AirQualityMapReduce-1.0-SNAPSHOT.jar cs455.hadoop.MeanTimeSO2.MeanTimeSO2Job /data/gases/hourly_42401_20*.csv /home/cs455/q3
+
 ### MeanYearSO2.MeanYearSO2Job
 Calculate mean SO2 per year.
+
+$HADOOP_HOME/bin/hadoop jar AirQualityMapReduce-1.0-SNAPSHOT.jar cs455.hadoop.MeanYearSO2.MeanYearSO2Job /data/gases/ /home/cs455/q4
+
 ### MeanSummerTemp.MeanSummerTempJob
 Calculate mean temperature for summer months (june-aug)
+
+$HADOOP_HOME/bin/hadoop jar AirQualityMapReduce-1.0-SNAPSHOT.jar cs455.hadoop.MeanSummerTemp.MeanSummerTempJob /data/meteorological/ /home/cs455/q5
+
 ### Mean HottestSO2.MeanHottestSO2Job
+
 Calculate SO2 for the 10 states with the hottest average summer months (MeanSummerTempJob)
 
+$HADOOP_HOME/bin/hadoop jar AirQualityMapReduce-1.0-SNAPSHOT.jar cs455.hadoop.MeanHottestSO2.MeanHottestSO2Job /data/gases/ /home/cs455/q6
+
+##List of files
 src/main/java/cs455/hadoop/MonitoringSites/                         - Q1
 src/main/java/cs455/hadoop/MonitoringSites/CountSitesMapper.java    - Mapper for q1 to count number of unique measuring sites
 src/main/java/cs455/hadoop/MonitoringSites/CountSitesReducer.java   - reducer and combiner to count unique measuring sites
