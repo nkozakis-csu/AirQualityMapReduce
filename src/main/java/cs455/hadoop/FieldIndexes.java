@@ -13,6 +13,7 @@ public enum FieldIndexes {
 	ParameterName(8),
 	DateLocal(9),
 	TimeLocal(10),
+	SampleMeasurement(13),
 	StateName(21),
 	CountyName(22)
 	;
